@@ -28,7 +28,7 @@ const AddingCoffe = () => {
             if(data.inertedId){
                 Swal.fire({
                     title: 'Success!',
-                    text: 'User Added Successfully',
+                    text: 'Coffe Added Successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
