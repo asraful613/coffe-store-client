@@ -3,14 +3,14 @@ import { AuthContext } from "../Providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const {creatUser}=useContext(AuthContext)
+    const {createUser}=useContext(AuthContext)
     const handleSignUp=e=>{
         e.preventDefault();
         const form=e.target;
         const email=form.email.value;
         const password=form.password.value;
         console.log(email,password);
-        creatUser(email,password)
+        createUser(email,password)
         .then(result=>{
             console.log(result.user);
             const user={email};
@@ -22,9 +22,14 @@ const SignUp = () => {
               body:JSON.stringify(user)
             })
         })
-        .then(res=>res.json())
+        .then(res=>{
+          res?.json()
+          console.log(res);
+        })
+
         .then(data=>{
-          if(data.inertedId){
+          console.log(data);
+          if(data.insertedId){
             Swal.fire({
               title: "Success!",
               text: "You have successfully signed up!",
